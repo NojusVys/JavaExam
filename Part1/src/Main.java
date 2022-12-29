@@ -24,32 +24,41 @@ public class Main {
                     pi1.setPozymisArIBanka(Boolean.parseBoolean(sc.nextLine()));
                     System.out.println("Papildoma informacija:");
                     pi1.setPapildomaInfo(sc.nextLine());
+                    pi1.setData();
                     b1.pridetiPajamuIrasa(pajamosCount, pi1);
+                    break;
                 case "islaidos":
                     islaidosCount++;
                     System.out.println("Iveskite islaidu kieki:");
-                    int is = Integer.parseInt(sc.nextLine());
+                    ii1.setSuma(Integer.parseInt(sc.nextLine()));
                     System.out.println("Islaidu kategorija:");
-                    String ik = sc.nextLine();
+                    ii1.setKategorija(sc.nextLine());
                     System.out.println("Atsiskaitymo budas:");
-                    String iats = sc.nextLine();
+                    ii1.setAtsiskaitymoBudas(sc.nextLine());
                     System.out.println("Papildoma informacija:");
-                    String ixtra = sc.nextLine();
-                    b1.pridetiIslaiduIrasa(islaidosCount, is, ik, iats, ixtra);
+                    ii1.setPapildomaInfo(sc.nextLine());
+                    ii1.setDataSuLaiku();
+                    b1.pridetiIslaiduIrasa(islaidosCount, ii1);
+                    break;
                 case "isvesti pajamas":
                     System.out.println("Kuria pajamu operacija noretumete matyti? (1 - 100)");
                     int w = Integer.parseInt(sc.nextLine());
                     b1.gautiPajamuIrasa(w - 1);
+                    break;
                 case "isvesti islaidas":
                     System.out.println("Kuria islaidu operacija noretumete matyti? (1 - 100)");
                     int q = Integer.parseInt(sc.nextLine());
                     b1.gautiIslaiduIsrasa(q - 1);
+                    break;
                 case "komandos":
                     komandos();
+                    break;
                 case "stop":
                     runProgram = false;
+                    break;
                 default:
                     System.out.println("Netinkama ivestis.");
+                    break;
             }
         }
         sc.close();
